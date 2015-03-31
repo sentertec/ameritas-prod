@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Search Results</title>
+	<meta name="keywords" content="Ameritas, Amertas Life Insurance, Fulfilling Life, Life Insurance, Retirement Plans, Annuities, Dental, Vision, Hearing,  Health,  Disability Income, Investments, Financial Planning, Public Finance, Individuals and Families, Businesses and Groups, Institutions and Municipalities, Financial Professionals and Producers, Insurance, Retirement, Annuity, Providers, Dental, Vision, Hearing, Individuals, Families, Individual, Family, Businesses, Business, Groups, Group, Institutions, Institution, Municipalities, Municipality, Financial Professionals, Financial Professional, Producers, Agents, Agent, Producer, Wellness, Healthcare">
+	<meta name="decription" content="">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="../img/icons/favicon.ico">
+    <!-- Bootstrap and demo CSS -->
+    <link href="../Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../Bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+	<!-- Custom Ameritas CSS -->
+	<link href="../css/ameritas-custom.css" type="text/css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+	<!-- JQuery, JQuery Mobile, and Bootstrap core JavaScript-->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="../JQueryMobile/jquery.mobile.custom.min.js"></script>
+    <script src="../Bootstrap/js/bootstrap.min.js"></script>
+	<!-- Load header/footer -->
+	<script>
+		$(function(){
+			$("#header").load("../header.html");
+			$("#footer").load("../footer.html");
+		});
+	</script>
+  </head>
+  <body>
+	<div class="body-container container">
+		
+		<!-- header -->
+		<div id="header"></div>
+		
+		<!-- Content -->
+		<div class="content">
+			
+			<!-- Center Content -->
+			<div class="container">
+				<h2>search results</h2>
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs" role="tablist">
+				  <li class="active"><a href="#site" role="tab" data-toggle="tab">Site Pages</a></li>
+				  <li><a href="#document" role="tab" data-toggle="tab">Documents</a></li>
+				</ul>
+
+				<!-- Tab panes -->
+				<div class="tab-content">
+				  <div class="tab-pane active" id="site">
+					
+				  </div>
+				  <div class="tab-pane" id="document">
+					
+				  </div>
+			</div><!-- /Center Content -->
+		</div><!-- /Container -->
+				
+		<!-- Footer -->
+		<div id="footer"></div>
+		
+	</div><!-- /Body container -->
+   
+  </body>
+
+  <script type="text/javascript" src="/CorpRespThemeS/themes/Portal8.0/responsive/js/ameritas.responsive.js"></script>
+  
+  <script type="text/javascript">
+		dojo.registerModulePath("ibm.portal.search.searchcenter", "/wps/PA_Search_Center/js/ibm/portal/search/SearchCenter");
+		dojo.require("ibm.portal.search.searchcenter.widgets.DisplayResultsWidgets");
+		dojo.require("ibm.portal.search.searchcenter.widgets.PortletSearchBox");
+		var search_taglib_ScopeSearchWidget_bundle={"viewHelp":"View Search Help","advSearch":"Advanced Search","showResults":"Show Last Results","unsupportedTag":"The search menu tag is not supported in this version of WebSphere Portal. Please refer to the Information Center for details.","scopeButtonTooltip":"Click to choose search scope","emptyBoxMessage":"Query box is empty!","setPrefs":"Set Search Preferences","searchAltText":"Click to perform a search","searchInstruction":"Search"};
+ 
+		function ns_Z7_CGAH47L0083E20I7QB3V3I0OA6_includeCss(/*String*/url) {
+			var css=document.createElement('link');
+			css.rel="stylesheet";
+			css.href=url;
+			css.type="text/css";
+			var head=document.getElementsByTagName('head');
+			if (head != null && head[0] != null) {
+				head[0].appendChild(css);
+			}
+		}
+		ns_Z7_CGAH47L0083E20I7QB3V3I0OA6_includeCss("/wps/PA_Search_Center/css/searchCenterPortlet.css");
+
+		function ns_Z7_CGAH47L0083E20I7QB3V3I0OA6_initSearch() {
+			dojo.registerModulePath("ibm.portal.search.searchcenter", "/wps/PA_Search_Center/js/ibm/portal/search/SearchCenter");
+			dojo.require("ibm.portal.search.searchcenter.widgets.DisplayResultsWidgets");
+			dojo.require("ibm.portal.search.searchcenter.widgets.PortletSearchBox");
+			var scopeString="";
+			if (scopeString.length > 0) {
+				if(!djConfig.parseOnLoad){
+					dojo.parser.parse("ns_Z7_CGAH47L0083E20I7QB3V3I0OA6_searchWidgetsContainer");
+				}
+				var scopeObj=dojo.fromJson(decodeURIComponent(scopeString));
+				scopeObj=new ibm.portal.search.scope.Scope(scopeObj.label, scopeObj.description, scopeObj.icon, scopeObj.id);
+				dojo.publish(ibm.portal.search.scope.SCOPE_SELECTED_TOPIC, [scopeObj]);
+				ns_Z7_CGAH47L0083E20I7QB3V3I0OA6_publishQuery(scopeObj);
+			} else {
+				dojo.subscribe('ibm.portal.search.scope.SCOPES', ns_Z7_CGAH47L0083E20I7QB3V3I0OA6_handleScopes);
+				if(!djConfig.parseOnLoad){
+					dojo.parser.parse("ns_Z7_CGAH47L0083E20I7QB3V3I0OA6_searchWidgetsContainer");
+				}
+			}
+		}
+  
+		function ns_Z7_CGAH47L0083E20I7QB3V3I0OA6_handleScopes(/*Array*/scopes) {
+			var scopeID="";
+			for (var i=0; i < scopes.length; i++) {
+				var scope=scopes[i];
+				if (scopeID.length > 0 && scopeID != scope.id) {
+					continue;
+				} else {
+					dojo.publish(ibm.portal.search.scope.SCOPE_SELECTED_TOPIC, [scope]);
+					ns_Z7_CGAH47L0083E20I7QB3V3I0OA6_publishQuery(scope);
+					break;
+				}
+			}
+		}
+  
+		function ns_Z7_CGAH47L0083E20I7QB3V3I0OA6_createAdvancedQuery(/*String*/ field, /*String*/ value) {
+			var words=value.split(" ");
+			if (words.length == 1) {
+				return field + ":" + value;
+			}
+			var buffer=[];
+			buffer.push("+(");
+			for (var i=0; i < words.length; i++) {
+				if (i != 0) {
+					buffer.push(" OR ");
+				}
+				buffer.push(field);
+				buffer.push(":");
+				buffer.push(words[i]);
+			}
+			buffer.push(")");
+			return buffer.join("");
+		}
+
+		//Amertias Customization: Filtering Authoring templates
+		function ns_Z7_CGAH47L0083E20I7QB3V3I0OA6_createAuthoringTemplateFilter(value) {
+			var words=value.split(" ");
+			if (words.length == 1) {
+				return "";
+			}
+			var buffer=[];
+			buffer.push("^(");
+			for (var i=0; i < words.length; i++) {
+				if (i != 0) {
+					buffer.push(" | ");
+				}
+				buffer.push("authoringtemplate");
+				buffer.push("::\"");
+				buffer.push(words[i]);
+				buffer.push("\"");
+			}
+			buffer.push(")");
+			return buffer.join("");
+		}
+
+		//Amertias Customization: Filtering Libraries
+		function ns_Z7_CGAH47L0083E20I7QB3V3I0OA6_createLibraryFilter(value) {
+			var words=value.split(" ");
+			if (words.length == 1) {
+				return "";
+			}
+			var buffer=[];
+			buffer.push("^(");
+			for (var i=0; i < words.length; i++) {
+				if (i != 0) {
+					buffer.push(" OR ");
+				}
+				buffer.push("contentpath");
+				buffer.push("::\"/");
+				buffer.push(words[i]);
+				buffer.push("\"");
+			}
+			buffer.push(")");
+			return buffer.join("");
+		}
+
+		function ns_Z7_CGAH47L0083E20I7QB3V3I0OA6_publishQuery(scopeObj) {
+			var query="some search here";
+			var queryObject=new ibm.portal.search.Query({
+				text: query,
+				language: "en",
+				scope: scopeObj
+			});
+			var searchFilters="";
+			if(searchFilters !=""){
+				
+			}
+
+			//Amertias Customization: search on general, person and video templates only
+			//queryObject.addAdvancedQuery("+(authoringtemplate::\"at_corp_general\" OR authoringtemplate::\"at_corp_person\")");
+			//queryObject.addAdvancedQuery("+(contentpath::\"/aic-invest\" OR contentpath::\"/ameritas\")");
+			queryObject.addAdvancedQuery(ns_Z7_CGAH47L0083E20I7QB3V3I0OA6_createAuthoringTemplateFilter("at_corp_general at_corp_person at_corp_video"));
+			queryObject.addAdvancedQuery(ns_Z7_CGAH47L0083E20I7QB3V3I0OA6_createLibraryFilter("aic-invest aip-invest ameritas group hr individual retirement"));
+			
+			if (queryObject.getFullQueryText().length > 0) {
+				dojo.publish(ibm.portal.search.NEW_QUERY_TOPIC, [queryObject]);
+			}
+		}
+	
+		function ns_Z7_CGAH47L0083E20I7QB3V3I0OA6_destroySearch() {
+			var searchWidgets=dijit.findWidgets(dojo.byId("ns_Z7_CGAH47L0083E20I7QB3V3I0OA6_searchWidgetsContainer"));
+			for (var i=0; i < searchWidgets.length; i++) {
+				searchWidgets[i].destroy();
+			}
+		}
+		
+		if (typeof dojo === "undefined") {
+			var node=document.getElementById("searchCenterView");
+			node.innerHTML='Portlet failed to load as Dojo is required.';
+		} else {
+			dojo.addOnWindowUnload(ns_Z7_CGAH47L0083E20I7QB3V3I0OA6_destroySearch);
+			dojo.addOnLoad(ns_Z7_CGAH47L0083E20I7QB3V3I0OA6_initSearch);
+		}
+	</script>
+
+	
+
+	<script type="text/javascript">
+
+		function getParameterByName(name) {
+			name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+			var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"), results = regex.exec(location.search);
+
+			if(results != null){
+				return decodeURIComponent(results[1].replace(/\+/g, " "));
+			}else{
+				//get search query from within portlet search center 
+				return decodeURIComponent($('#ibm_portal_search_searchcenter_widgets_PortletSearchBox_0searchInput').val());
+			}
+		}
+
+		$(document).ready(function() {
+			//var searchString = encodeURIComponent("xSite <matches> 'GROUP KC' <and> xSection <matches> 'NEWS' <and> xSubSection <matches> 'BITING EDGE DENTIST	NEWSLETTER'");
+			var searchString = encodeURIComponent("xSubSection <matches> '" + getParameterByName('query') + "'");
+			var layout = encodeURIComponent("wcm");
+			//alert(searchString);
+			$("#ocmBody").load("/wps/Ameritas/Corp_AccessoryJSP/jsp/OCMSearch/OCMSearch.jsp?searchString=" + searchString + "&layout=" + layout);
+		});
+	</script>
+</html>

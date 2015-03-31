@@ -1,0 +1,92 @@
+
+{
+
+	"HTMLFileName":"Untitled-1.html",
+	"pref__general__AutoKeyframeProperties":"true",
+	"ModelData":"{\
+\"stage\": {\
+   \"timelines\": {\
+      \"Default Timeline\": {\
+      }\
+   }},\
+\"Preloader\": {\
+   \"timelines\": {\
+\
+   }},\
+\"Down-level\": {\
+   \"timelines\": {\
+\
+   }}\
+}",
+	"stage-Default Timeline_mark_ms":"-1",
+	"pref__general__GenerateSmoothTransitions":"true",
+	"expanded:images/financial_services.png":"nil",
+	"UseImgTag":"false",
+	"expanded:images/insurance.png":"nil",
+	"ShowRulers":"false",
+	"viewStartMs":"5465",
+	"pref__general__FilterNonAnimatedElements":"false",
+	"TransitionIdCounter":"46",
+	"viewStartY":"0",
+	"expanded:images/retirement.png":"nil",
+	"pref__general__AutoKeyframePropertiesArmed":"true",
+	"pixelsPerMs":"0.2",
+	"symbol_stage":{
+		"dummyStageParentWidth":"639px",
+		"dummyStageParentHeight":"193px",
+		"element_${_logo}":{
+			"timelineColor2":"0x4fa275",
+			"timelineColor3":"0x456a55",
+			"invisible":"false",
+			"timelineColor":"0x50bd82"},
+		"element_${_financial_services}":{
+			"timelineColor2":"0xd8b467",
+			"invisible":"false",
+			"timelineColor":"0xffd46d",
+			"animationEnabled":"true",
+			"timelineColor3":"0x81714f"},
+		"defaultStageParentHeight":"193px",
+		"element_${_insurance}":{
+			"timelineColor2":"0x168c84",
+			"invisible":"false",
+			"timelineColor":"0x00a096",
+			"animationEnabled":"true",
+			"timelineColor3":"0x2a605c"},
+		"element_${_logo1}":{
+			"timelineColor2":"0x81aa62",
+			"invisible":"false",
+			"timelineColor":"0x91c767",
+			"animationEnabled":"false",
+			"timelineColor3":"0x5b6c4d"},
+		"defaultStageParentWidth":"639px",
+		"element_${_fulfilling_life}":{
+			"timelineColor2":"0x326a96",
+			"invisible":"false",
+			"timelineColor":"0x2f73ad",
+			"animationEnabled":"true",
+			"timelineColor3":"0x385063"},
+		"element_${_Stage}":{
+			"timelineColor2":"0xcbbd71",
+			"invisible":"false",
+			"timelineColor":"0xeedf79",
+			"locked":"false",
+			"animationEnabled":"true",
+			"timelineColor3":"0x7b7652"},
+		"element_${_retirement}":{
+			"timelineColor2":"0x4fa275",
+			"invisible":"false",
+			"timelineColor":"0x50bd82",
+			"animationEnabled":"true",
+			"timelineColor3":"0x456a55"}},
+	"PreloadAudio":"auto",
+	"CompZoomFactor":"100",
+	"StageZoomFactor":"100",
+	"pref__general__TimelineSnapEnabled":"true",
+	"expanded:images/fulfilling_life.png":"nil",
+	"expanded:images/logo.png":"nil",
+	"pref__general__AudioMutedInTool":"true",
+	"nextElementColorIndex":"8",
+	"stage-Default Timeline_playhead_ms":"0",
+	"pref__general__TimelineShowGrid":"true",
+	"usedBOM":"false",
+	"expanded:images/logo1.png":"nil"}
